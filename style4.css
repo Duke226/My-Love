@@ -1,0 +1,69 @@
+/* 3D Heart Decoration */
+.scene-3d {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.heart-3d {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle at 30% 30%, #ff8787, #ff6b9d);
+    box-shadow:
+        inset -5px -5px 10px rgba(0, 0, 0, 0.2),
+        5px 5px 15px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    animation: float3D 10s infinite linear;
+}
+
+/* Pseudo-element for heart shape using CSS only - more efficient than SVGs for particles */
+.heart-3d::before,
+.heart-3d::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 50%;
+    box-shadow: inherit;
+}
+
+.heart-3d::before {
+    left: -50%;
+}
+
+.heart-3d::after {
+    top: -50%;
+}
+
+/* Specific rotation to make the square look like a heart */
+.heart-shape {
+    transform: rotate(-45deg);
+}
+
+@keyframes float3D {
+    0% {
+        transform: translate3d(var(--x-start), 110vh, var(--z-start)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate3d(var(--x-end), -20vh, var(--z-end)) rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,118 @@
+/* Magic Fireflies */
+.firefly {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: #ffeeb0;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffeeb0, 0 0 20px #ffeeb0;
+    animation: moveFirefly 20s infinite alternate, flashFirefly 3s infinite;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+}
+
+@keyframes moveFirefly {
+    0% {
+        transform: translate(var(--dx), var(--dy));
+    }
+
+    100% {
+        transform: translate(var(--dx2), var(--dy2));
+    }
+}
+
+@keyframes flashFirefly {
+
+    0%,
+    100% {
+        opacity: 0;
+        box-shadow: 0 0 0 transparent;
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px #ffeeb0, 0 0 30px #ffeeb0;
+    }
+}
+
+/* Glowing Border Animation for Proposal Box */
+.proposal-box {
+    /* Keep existing glassmorphism */
+    /* Add animated border glow */
+    position: relative;
+    overflow: visible !important;
+    /* Allow glow to spill out */
+}
+
+.proposal-box::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 26px;
+    /* Slightly larger than box */
+    background: linear-gradient(45deg, #ff6b9d, #ffcfdf, #667eea, #764ba2, #ff6b9d);
+    background-size: 400%;
+    z-index: -1;
+    animation: glowingBorder 20s linear infinite;
+    opacity: 0.7;
+    filter: blur(10px);
+}
+
+@keyframes glowingBorder {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* 3D Page Flip Transition overrides */
+.page {
+    backface-visibility: hidden;
+    transform-origin: center center;
+}
+
+.page-exit {
+    animation: flipOutY 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+}
+
+.page-enter {
+    animation: flipInY 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
+    display: block !important;
+}
+
+@keyframes flipOutY {
+    from {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: rotateY(-90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes flipInY {
+    from {
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateY(0deg);
+        opacity: 1;
+    }
+}

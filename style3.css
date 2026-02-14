@@ -1,0 +1,81 @@
+/* Flower Decoration */
+.flower-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    /* In front of hearts but behind content */
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.1));
+}
+
+/* Creating CSS-only flowers to avoid external image dependencies */
+.flower-shape {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #ffed4a 20%, transparent 25%),
+        conic-gradient(from 0deg at 50% 50%,
+            #ff9a9e 0deg 45deg,
+            transparent 45deg 60deg,
+            #ff9a9e 60deg 105deg,
+            transparent 105deg 120deg,
+            #ff9a9e 120deg 165deg,
+            transparent 165deg 180deg,
+            #ff9a9e 180deg 225deg,
+            transparent 225deg 240deg,
+            #ff9a9e 240deg 285deg,
+            transparent 285deg 300deg,
+            #ff9a9e 300deg 345deg,
+            transparent 345deg 360deg);
+    border-radius: 50%;
+    animation: spinFlower 10s linear infinite;
+}
+
+/* Alternate flower style - Rose-ish */
+.flower-rose {
+    background: radial-gradient(circle at 30% 30%, #ff758c, #ff7eb3);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    box-shadow: inset -5px -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes spinFlower {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatFlower {
+    0% {
+        transform: translate3d(0, 110vh, 0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(var(--sway), -20vh, 0) rotate(var(--rotation));
+        opacity: 0;
+    }
+}

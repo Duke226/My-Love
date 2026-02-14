@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#667eea">
+    <title>A Special Proposal for You 💕</title>
+    <link rel="stylesheet" href="style7.css">
+    <link rel="stylesheet" href="style6.css">
+    <link rel="stylesheet" href="style5.css">
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style1.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heart-background">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+
+        <!-- NEW: Start Overlay to force interaction for music -->
+        <div id="startOverlay" class="start-overlay">
+            <div class="overlay-content">
+                <div class="pulse-heart">❤️</div>
+                <p>Tap to Open</p>
+            </div>
+        </div>
+
+        <!-- Background Music -->
+        <audio id="backgroundMusic" autoplay muted loop preload="auto">
+            <source src="proposal-music.mpeg" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Music Controls -->
+        <div class="music-controls">
+            <button id="musicToggle" class="music-btn" onclick="toggleMusic()" title="Toggle music">
+                🔊 Music On
+            </button>
+        </div>
+
+        <!-- Page 1: First Meeting (Existing) -->
+        <div class="proposal-box page" id="page1">
+            <div class="header">
+                <h1>💫 Our Journey 💫</h1>
+                <div class="name" data-text="My Dear Pondati">My Dear Pondati</div>
+            </div>
+            <div class="content">
+                <p class="greeting">Remember when we first met?</p>
+                <div class="message">
+                    <p>
+                        Na unna first lab la tha ma paaten paththa udane ennaku unmela oru crush oru puthu feel apo
+                        ennaku theriyathu nee tha en future nu athuku aprom pesa aarambichu friends ah maari konjam
+                        athu apadiye un mela kadhal ah marisu ennaku first thonusu propose pannuvom ah vedam ah nu
+                        athuku aprom ipo unna vitta epothum nee kedaika maata nu oru thairiyam vara vasu final ah
+                        ennaku eththa mari situation vanthusu na oru pokkula propse panniten na nenasu kuda paakala
+                        enna accpet pannuva nu final ah neeum accept pannita na atha expet panna ve illa etho kadavul
+                        nambala onnu seththu vasudaru "I Love you As Always Thangoo"
+                    </p>
+                </div>
+                <div class="button-container">
+                    <button class="btn next-btn" onclick="nextPage()">Next 💕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Page 2: Reasons to Love -->
+        <div class="proposal-box page hidden" id="page2">
+            <div class="header">
+                <h1>✨ Why You? ✨</h1>
+                <div class="name" data-text="My Angel">My Angel</div>
+            </div>
+            <div class="content">
+                <p class="greeting">There are a million reasons...</p>
+                <div class="reasons-list">
+                    <div class="reason-card delay-1">
+                        <span class="icon">😊</span>
+                        <p>Your beautiful smile that lights up my world</p>
+                    </div>
+                    <div class="reason-card delay-2">
+                        <span class="icon">👀</span>
+                        <p>The way your eyes speak to my soul</p>
+                    </div>
+                    <div class="reason-card delay-3">
+                        <span class="icon">🦋</span>
+                        <p>The butterflies you give me every single day</p>
+                    </div>
+                    <div class="reason-card delay-4">
+                        <span class="icon">💖</span>
+                        <p>Just being YOU makes my life complete</p>
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button class="btn next-btn" onclick="nextPage()">More Love 💕</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW Page 3: Promise -->
+        <div class="proposal-box page hidden" id="page3">
+            <div class="header">
+                <h1>🤞 My Promise 🤞</h1>
+            </div>
+            <div class="content">
+                <div class="pulse-heart-container">
+                    <div class="big-heart">❤️</div>
+                </div>
+                <div class="promise-text">
+                    <p class="fade-in-text">I promise to be...</p>
+                    <p class="highlight-text pop-in">Your Safe Place 🏠</p>
+                    <p class="highlight-text pop-in delay-1">Your Biggest Fan 📣</p>
+                    <p class="highlight-text pop-in delay-2">Your Forever Love ♾️</p>
+                </div>
+                <div class="button-container">
+                    <button class="btn next-btn" onclick="nextPage()">One Question... 🫣</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: How much do you like me (Formerly Page 2) -->
+        <div class="proposal-box page hidden" id="page4">
+            <div class="header">
+                <h1>❤️ A Question ❤️</h1>
+                <div class="name" data-text="My Dear Pondati">My Dear Pondati</div>
+            </div>
+            <div class="content">
+                <p class="greeting">Enna Unnaku Evalo Pudikum</p>
+                <div class="message">
+                    <p>Choose honestly! 😊</p>
+                </div>
+                <div class="rating-container">
+                    <button class="rating-btn" onclick="selectRating(1)">
+                        <span class="rating-value">Pudikum</span>
+                        <span class="rating-icon">😊</span>
+                    </button>
+                    <button class="rating-btn" onclick="selectRating(2)">
+                        <span class="rating-value">Romba Pudikum</span>
+                        <span class="rating-icon">😍</span>
+                    </button>
+                    <button class="rating-btn" onclick="selectRating(3)">
+                        <span class="rating-value">Alavuku adikam ah pudikum</span>
+                        <span class="rating-icon">🥰</span>
+                    </button>
+                    <button class="rating-btn" onclick="selectRating(4)">
+                        <span class="rating-value">Solla Vartha illa</span>
+                        <span class="rating-icon">💕</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 5: Final Proposal (Formerly Page 3) -->
+        <div class="proposal-box page hidden" id="page5">
+            <div class="header">
+                <h1>💍MY DEAR💍</h1>
+                <div class="name" data-text="Thango">Thango</div>
+            </div>
+
+            <div class="content">
+                <p class="greeting">On this Valentine's Day, I want to express my deepest feelings...</p>
+
+                <div class="message">
+                    <p>
+                        Since the day I met you, my heart found its home. Every moment with you
+                        is a blessing I cherish deeply. You bring light to my darkest days and
+                        joy to every moment we share.
+                    </p>
+
+                    <p>
+                        You are my best friend, my partner, and my greatest love. With you,
+                        I've discovered what it truly means to be happy. Your smile melts my heart,
+                        your laugh fills my soul, and your love makes me a better person.
+                    </p>
+
+                    <p>
+                        I want to spend the rest of my life making you smile, holding your hand,
+                        and building beautiful memories together. You are everything I've ever wanted
+                        and everything I'll ever need.
+                    </p>
+                </div>
+
+                <div class="proposal-text">
+                    <p class="main-question">Will you continue to be my Valentine for life?</p>
+                    <p class="sub-text">Forever and always, with all my love</p>
+                </div>
+
+                <div class="button-container">
+                    <button class="btn yes-btn" onclick="showYesResponse()">YES! 💍</button>
+                    <button class="btn no-btn" onclick="moveButton(this)">Maybe Later</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="response-message" id="responseMessage"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html
